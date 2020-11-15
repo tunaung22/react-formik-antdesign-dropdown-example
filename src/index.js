@@ -21,18 +21,20 @@ const InnerForm = ({
   return (
     <FormikForm onSubmit={handleSubmit}>
       <FormItem>
+        <label htmlFor="username">Enter username:</label>
         <FormikField
           name="username"
           render={({ field }) => <Input {...field} placeholder="Username" />}
         />
       </FormItem>
       <FormItem>
+        <label htmlFor="choices">Choose a fruit:</label>
         <FormikField
           name="fruit"
           render={({ field }) => (
             <Select
               {...field}
-              onChange={value => setFieldValue("fruit", value)}
+              onChange={(value) => setFieldValue("fruit", value)}
               onBlur={() => setFieldTouched("fruit", true)}
               value={values.fruit}
             >
@@ -57,6 +59,7 @@ const InnerForm = ({
           Submit
         </Button>
       </FormItem>
+      <h4>** Check value in console.</h4>
     </FormikForm>
   );
 };
@@ -83,8 +86,17 @@ const MyFormikForm = withFormik({
 function App() {
   return (
     <div className="App">
-      <h3>Chose a fruit</h3>
+      <h3 className="title">
+        React with AntDesign to Get Dropdown Data with Formik Sample
+      </h3>
       <MyFormikForm />
+      <div>
+        <ul>
+          <li>antd 3.6.4</li>
+          <li>formik 0.11.11</li>
+          <li>react 16.3.2</li>
+        </ul>
+      </div>
     </div>
   );
 }
